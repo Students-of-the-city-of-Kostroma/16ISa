@@ -4,11 +4,16 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MathTests
 {
     [TestClass]
-    public class UnitTest1
+    public class BubbleSortTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Sort_Puz1()
         {
+            //arrange
+            
+            //act
+
+            //assert
         }
     }
 }
