@@ -8,6 +8,56 @@ namespace MathTests
     public class BubbleSortTests
     {
         [TestMethod]
+        public void Sort_puz1()
+        {
+            //arrange
+            BubbleSort bubble = new BubbleSort();
+            int[] testArr = new int[10];
+            Random n = new Random();
+            for (int i = 0; i < testArr.Length; i++)
+            {
+                testArr[i] = n.Next(-5, 100);
+            }
+            //act
+            testArr = bubble.DoBubbleSort(testArr);
+            //assert
+            Assert.IsTrue(Check(testArr));
+        }
+
+        [TestMethod]
+        public void Sort_puz2()
+        {
+            //arrange
+            //act
+            //assert
+            Assert.Fail();
+        }
+
+        [TestMethod]
+        public void Sort_puz3()
+        {
+            //arrange
+            BubbleSort bubble = new BubbleSort();
+            int[] testArr = new int[0];
+            //act
+            testArr = bubble.DoBubbleSort(testArr);
+            //assert
+            Assert.AreEqual("Входной массив пуст",testArr);
+        }
+        [TestMethod]
+        public void Sort_puz4()
+        {
+            //arrange
+            BubbleSort bubble = new BubbleSort();
+            int[] testArr = new int[1];
+            Random n = new Random();
+            testArr[0] = n.Next(-5, 100);
+            //act
+            testArr = bubble.DoBubbleSort(testArr);
+            //assert
+            Assert.AreEqual("Входной массив содержит одно значение", testArr);
+        }
+        [TestMethod]
         public void Sort_Puz8()
         {
             //arrange
