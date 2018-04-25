@@ -1,28 +1,27 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using ClassLibrary1;
 
 namespace MathTests
 {
     [TestClass]
     public class BubbleSortTests
     {
+        private static BubbleSort bubble;
 
-        [TestMethod]
-        public void Sort_Puz5()
+        [TestInitialize]
+        public static void ClassInitialize()
         {
-            //arrange
-
-            //act
-
-            //assert
+            bubble = new BubbleSort();
         }
+
 
         [TestMethod]
         public void Sort_puz1()
         {
             //arrange
-            BubbleSort bubble = new BubbleSort();
+            //BubbleSort bubble = new BubbleSort();
             int[] testArr = new int[10];
             Random n = new Random();
             for (int i = 0; i < testArr.Length; i++)
@@ -48,18 +47,19 @@ namespace MathTests
         public void Sort_puz3()
         {
             //arrange
-            BubbleSort bubble = new BubbleSort();
+            //BubbleSort bubble = new BubbleSort();
             int[] testArr = new int[0];
             //act
             testArr = bubble.DoBubbleSort(testArr);
             //assert
             Assert.AreEqual("Входной массив пуст",testArr);
         }
+
         [TestMethod]
         public void Sort_puz4()
         {
             //arrange
-            BubbleSort bubble = new BubbleSort();
+           // BubbleSort bubble = new BubbleSort();
             int[] testArr = new int[1];
             Random n = new Random();
             testArr[0] = n.Next(-5, 100);
@@ -68,11 +68,46 @@ namespace MathTests
             //assert
             Assert.AreEqual("Входной массив содержит одно значение", testArr);
         }
+
+        [TestMethod]
+        public void Sort_Puz5()
+        {
+            //arrange
+            int[] testArr = {1,2,3,4,5};
+
+            //act
+            testArr = bubble.DoBubbleSort(testArr);
+
+            //assert
+            Assert.AreEqual("Входной массив содержит одно значение", testArr);
+        }
+
+        [ExpectedException(typeof(ArgumentException),"Во входном массиве присутствуют не численные значения")]
+        [TestMethod]
+        public void Sort_Puz6()
+        {
+            //arrange
+            string[] testArr = {"test", "1", "2", "3"};
+            //act
+            //testArr = bubble.DoBubbleSort(testArr);
+            // Нужно переделать метод пузырька, чтобы тест заработал
+        }
+
+        [ExpectedException(typeof(ArgumentException), "Во входном массиве присутствуют значения, выходящие за числовой диапазон")]
+        [TestMethod]
+        public void Sort_Puz7()
+        {
+            //arrange
+
+            //act
+        }
+
+
         [TestMethod]
         public void Sort_Puz8()
         {
             //arrange
-            BubbleSort bubble = new BubbleSort();
+            //BubbleSort bubble = new BubbleSort();
 
             Random n = new Random();
             int[] mas = new int[1000];
@@ -85,6 +120,7 @@ namespace MathTests
             //assert
             Assert.IsTrue(Check(mas));
         }
+
         public bool Check(int[] mas)
         {
             for (int i = 0; i < mas.Length - 1; i++)
@@ -96,22 +132,11 @@ namespace MathTests
             }
             return true;
         }
-        [TestMethod]
-        public void Sort_Puz6()
-        {
-            //arrange
 
-            //act
-
-            //assert
-        }
-
-        [TestMethod]
-        public void Sort_Puz7()
         public void Sort_Puz9()
         {
             //arrange
-            BubbleSort bubble = new BubbleSort();
+            //BubbleSort bubble = new BubbleSort();
 
             Random n = new Random();
             int[] mas = new int[10000];
@@ -129,7 +154,7 @@ namespace MathTests
         public void Sort_Puz10()
         {
             //arrange
-            BubbleSort bubble = new BubbleSort();
+            //BubbleSort bubble = new BubbleSort();
 
             Random n = new Random();
             int[] mas = new int[100000];
