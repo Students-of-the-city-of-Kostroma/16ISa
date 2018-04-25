@@ -98,8 +98,11 @@ namespace MathTests
         public void Sort_Puz7()
         {
             //arrange
+            decimal[] testArr = {decimal.MaxValue, 0, 2, decimal.MinValue};
 
             //act
+            //testArr = bubble.DoBubbleSort(testArr);
+            // Нужно переделать метод пузырька, чтобы тест заработал
         }
 
 
