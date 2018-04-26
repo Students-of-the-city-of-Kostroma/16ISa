@@ -11,7 +11,7 @@ namespace MathTests
         private static BubbleSort bubble;
 
         [TestInitialize]
-        public static void ClassInitialize()
+        public void ClassInitialize()
         {
             bubble = new BubbleSort();
         }
@@ -59,7 +59,7 @@ namespace MathTests
         public void Sort_puz4()
         {
             //arrange
-           // BubbleSort bubble = new BubbleSort();
+            //BubbleSort bubble = new BubbleSort();
             int[] testArr = new int[1];
             Random n = new Random();
             testArr[0] = n.Next(-5, 100);
@@ -73,6 +73,7 @@ namespace MathTests
         public void Sort_Puz5()
         {
             //arrange
+            //BubbleSort bubble = new BubbleSort();
             int[] testArr = {1,2,3,4,5};
 
             //act
@@ -106,6 +107,18 @@ namespace MathTests
         }
 
 
+        public bool Check(int[] mas)
+        {
+            for (int i = 0; i < mas.Length - 1; i++)
+            {
+                if (mas[i] > mas[i + 1])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         [TestMethod]
         public void Sort_Puz8()
         {
@@ -124,18 +137,8 @@ namespace MathTests
             Assert.IsTrue(Check(mas));
         }
 
-        public bool Check(int[] mas)
-        {
-            for (int i = 0; i < mas.Length - 1; i++)
-            {
-                if (mas[i] > mas[i + 1])
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
 
+        [TestMethod]
         public void Sort_Puz9()
         {
             //arrange
