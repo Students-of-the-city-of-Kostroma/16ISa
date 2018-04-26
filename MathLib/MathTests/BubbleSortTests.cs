@@ -79,7 +79,7 @@ namespace MathTests
             testArr = bubble.DoBubbleSort(testArr);
 
             //assert
-            Assert.AreEqual("Входной массив содержит одно значение", testArr);
+            Assert.AreEqual("Входной массив уже отстортирован", testArr);
         }
 
         [ExpectedException(typeof(ArgumentException),"Во входном массиве присутствуют не численные значения")]
