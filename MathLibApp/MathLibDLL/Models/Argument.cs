@@ -8,5 +8,14 @@ namespace MathLibDLL.Models
 {
     public class Argument
     {
+        public string Name { set; get; }
+
+        public double Value { set; get; }
+
+        public Argument(string name, double value)
+        {
+            Name = name;
+            Value = value;
+        }
     }
 }
