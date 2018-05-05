@@ -8,5 +8,9 @@ namespace MathLibDLL.Models
 {
     public class Constant
     {
+        public Constant(string name, double value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
