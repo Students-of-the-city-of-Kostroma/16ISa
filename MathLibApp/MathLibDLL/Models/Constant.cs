@@ -10,7 +10,11 @@ namespace MathLibDLL.Models
     {
         public Constant(string name, double value)
         {
-            throw new NotImplementedException();
+            Name = name;
+            Value = value;
         }
+
+        public string Name;
+        public double Value;
     }
 }
