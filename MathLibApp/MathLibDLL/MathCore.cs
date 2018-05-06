@@ -21,7 +21,7 @@ namespace MathLibDLL
             var Elements = new List<PrimitiveElement>();
             Elements.AddRange(expression.Arguments
                 .ConvertAll(a => new Argument($"{a.Name} = {a.Value}")));
-            Elements.AddRange(UserFunctions.ConvertAll(f=>new Argument(f.GetExpression)));
+            Elements.AddRange(UserFunctions.ConvertAll(f=>new Function(f.GetExpression)));
             Elements.AddRange(UserConstants.ConvertAll(c=>new Argument(c.Name,c.Value)));
             Expression exp = new Expression(expression.Expression,Elements.ToArray());
             return exp.calculate();
@@ -32,7 +32,7 @@ namespace MathLibDLL
             var Elements = new List<PrimitiveElement>();
             Elements.AddRange(expression.Arguments
                 .ConvertAll(a => new Argument($"{a.Name} = {a.Value}")));
-            Elements.AddRange(UserFunctions.ConvertAll(f => new Argument(f.GetExpression)));
+            Elements.AddRange(UserFunctions.ConvertAll(f => new Function(f.GetExpression)));
             Elements.AddRange(UserConstants.ConvertAll(c => new Argument(c.Name, c.Value)));
             Expression test = new Expression(expression.Expression, Elements.ToArray());
             return !test.checkSyntax();
