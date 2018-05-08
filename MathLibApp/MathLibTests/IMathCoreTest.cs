@@ -20,10 +20,11 @@ namespace MathLibTests
         {
             //arrange
             string data = Convert.ToString(TestContext.DataRow["data"]);
-            double expected = double.NaN;
+            double expected = double.NaN;//предлагается использовать null, 
+            //но его нельзя поместить в тип double
             //acts
             IE.Expression = data;
-            double actual = IMC.Calculate(IE);
+            double actual = IMC.Calculate(IE);//якобы на выходе будет null            
             //assert
             Assert.AreEqual(actual, expected);
         }
@@ -33,10 +34,11 @@ namespace MathLibTests
         {
             //arrange
             double mv = double.MaxValue;
-            double expected = double.NaN;
+            double expected = double.NaN;//предлагается использовать null, 
+            //но его нельзя поместить в тип double
             //acts
             IE.Expression = mv+"+1";
-            double actual = IMC.Calculate(IE);
+            double actual = IMC.Calculate(IE);//якобы на выходе будет null
             //assert
             Assert.AreEqual(actual, expected);
         }
@@ -46,10 +48,11 @@ namespace MathLibTests
         {
             //arrange
             double mv = double.MinValue;
-            double expected = double.NaN;
+            double expected = double.NaN;//предлагается использовать null, 
+            //но его нельзя поместить в тип double
             //acts
             IE.Expression ="-" + mv + "-1";
-            double actual = IMC.Calculate(IE);
+            double actual = IMC.Calculate(IE);//якобы на выходе будет null
             //assert
             Assert.AreEqual(actual, expected);
         }
