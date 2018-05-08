@@ -1,25 +1,20 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MathLibDLL;
 
 namespace MathLibTests
 {
     [TestClass]
     public class IMathCoreTest
     {
-        [ClassInitialize]
-        public void ClassInitialize()
-        {
-
-        }
+        public TestContext TestContext { get; set; }
 
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML","textData.xml", "Calculate",
-            DataAccessMethod.Sequentail)]
+            DataAccessMethod.Sequential)]
         [TestMethod]
         public void MathLib_Calculate_FromXML()
         {
             //arrange
-            string data = Convert.ToString(TextContext.DataRow["data"]);
+            string data = Convert.ToString(TestContext.DataRow["data"]);
             //acts
             
             //assert
