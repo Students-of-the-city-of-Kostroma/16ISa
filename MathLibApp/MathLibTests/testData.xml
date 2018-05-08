@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Data>
+  <Calculate data="гдевыражение?"></Calculate>
+  <Calculate data="1++2"></Calculate>
+  <Calculate data="1--2"></Calculate>
+  <Calculate data="1+,2"></Calculate>
+  <Calculate data="1=2"></Calculate>
+  <Calculate data="double mv=double.MaxValue 1+mv"></Calculate>
+  <Calculate data="double mv=double.MinValue -1-mv"></Calculate>
+  <Calculate data="1**2"></Calculate>
+  <Calculate data="1//2"></Calculate>
+</Data>
