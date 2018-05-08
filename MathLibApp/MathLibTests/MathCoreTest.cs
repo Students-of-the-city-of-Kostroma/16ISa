@@ -1,16 +1,17 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MathLibDLL.Interfaces;
+using org.mariuszgromada.math.mxparser;
+using MathLibDLL;
+using System.Collections.Generic;
 
 namespace MathLibTests
 {
+    
     [TestClass]
-    public class IMathCoreTest
+    public class MathCoreTest
     {
         public TestContext TestContext { get; set; }
-        IMathCore IMC;
-        IExpression IE;
-
+        //MathCore mc = new MathCore();
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "testData.xml",
             "Calculate", DataAccessMethod.Sequential)]
         [TestMethod]
@@ -21,10 +22,9 @@ namespace MathLibTests
             double expected = double.NaN;//предлагается использовать null, 
             //но его нельзя поместить в тип double
             //acts
-            IE.Expression = data;
-            double actual = IMC.Calculate(IE);//якобы на выходе будет null            
+            //double actual=mc.Calculate();//якобы на выходе будет null            
             //assert
-            Assert.AreEqual(actual, expected);
+            //Assert.AreEqual(actual, expected);
         }
     }
 }
