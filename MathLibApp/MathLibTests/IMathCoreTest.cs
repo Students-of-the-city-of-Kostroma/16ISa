@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MathLibDLL.Interfaces;
 
 namespace MathLibTests
 {
@@ -7,6 +8,7 @@ namespace MathLibTests
     public class IMathCoreTest
     {
         public TestContext TestContext { get; set; }
+
 
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML","textData.xml", "Calculate",
             DataAccessMethod.Sequential)]
