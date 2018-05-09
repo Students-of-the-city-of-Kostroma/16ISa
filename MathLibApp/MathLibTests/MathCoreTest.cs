@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using org.mariuszgromada.math.mxparser;
 using MathLibDLL;
 using System.Collections.Generic;
+using Moq;
+using MathLibDLL.Interfaces;
 
 namespace MathLibTests
 {
@@ -32,10 +34,13 @@ namespace MathLibTests
             //arrange
             double expected = 1;
             string data = "1*2/2";
+            var mockExp = new Mock<IExpression>();
+            mockExp.Setup(exp => exp.Expression).Returns(data);
+            var mockMath = new Mock<IMathCore>();
             //acts
-            //double actual = mc.Calculate(data);
+            double actual = mockMath.Object.Calculate(mockExp.Object);
             //assert
-            //Assert.AreEqual(expected, actual);
+            Assert.AreEqual(actual, expected);
         }
 
         [TestMethod]
@@ -44,10 +49,13 @@ namespace MathLibTests
             //arrange
             double expected = 0.5;
             string data = "1/20.*10";
+            var mockExp = new Mock<IExpression>();
+            mockExp.Setup(exp => exp.Expression).Returns(data);
+            var mockMath = new Mock<IMathCore>();
             //acts
-            //double actual = mc.Calculate(data);
+            double actual = mockMath.Object.Calculate(mockExp.Object);
             //assert
-            //Assert.AreEqual(expected, actual);
+            Assert.AreEqual(actual, expected);
         }
 
         [TestMethod]
@@ -56,10 +64,13 @@ namespace MathLibTests
             //arrange
             double expected = 2.10327613;
             string data = "52.5*321/8012.5";
+            var mockExp = new Mock<IExpression>();
+            mockExp.Setup(exp => exp.Expression).Returns(data);
+            var mockMath = new Mock<IMathCore>();
             //acts
-            //double actual = mc.Calculate(data);
+            double actual = mockMath.Object.Calculate(mockExp.Object);
             //assert
-            //Assert.AreEqual(expected, actual);
+            Assert.AreEqual(actual, expected);
         }
 
         [TestMethod]
@@ -68,10 +79,13 @@ namespace MathLibTests
             //arrange
             double expected = 856356.822;
             string data = "8911.52*219.48/23/34*786/2012.5*0.5*2999/502*10500.228/322*9";
+            var mockExp = new Mock<IExpression>();
+            mockExp.Setup(exp => exp.Expression).Returns(data);
+            var mockMath = new Mock<IMathCore>();
             //acts
-            //double actual = mc.Calculate(data);
+            double actual = mockMath.Object.Calculate(mockExp.Object);
             //assert
-            //Assert.AreEqual(expected, actual);
+            Assert.AreEqual(actual, expected);
         }
     }
 }
