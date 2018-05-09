@@ -50,5 +50,51 @@ namespace MathLibTests
             //assert
             //Assert.AreEqual(actual, expected);
         }
+
+        [TestMethod]
+        public void BaseCalc_1()
+        {
+            //arrange
+            string data = "1+2";    
+            double expected = 3;
+            //acts
+
+            //assert
+            //Assert.AreEqual(actual, expected);
+        }
+        [TestMethod]
+        public void BaseCalc_2()
+        {
+            //arrange
+            string data = "1+2.5";
+            double expected = 3.5;
+            //acts
+
+            //assert
+            //Assert.AreEqual(actual, expected);
+        }
+        [TestMethod]
+        public void BaseCalc_3()
+        {
+            //arrange
+            string data = "52.5+321+8012.5";
+            double expected = 8386;
+            //acts
+
+            //assert
+            //Assert.AreEqual(actual, expected);
+        }
+        [TestMethod]
+        public void BaseCalc_4()
+        {
+            //arrange
+            string data = "8911.52+219.48+23+34+786-2012.5+0.5+2999-502+10500.228+322-20959";
+            double expected = 322.228;
+            //acts
+
+            //assert
+            //Assert.AreEqual(actual, expected);
+        }
+
     }
 }
