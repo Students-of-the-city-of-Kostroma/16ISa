@@ -21,6 +21,8 @@ namespace MathLibTests
             mc = new MathCore();
         }
 
+
+        //Включены следующие методы: BaseCalc_5, BaseCalc_6,BaseCalc_7, BaseCalc_8, BaseCalc_9
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML","testData.xml", "Calculate",
             DataAccessMethod.Sequential)]
         [TestMethod]
@@ -28,38 +30,44 @@ namespace MathLibTests
         {
             //arrange
             string data = Convert.ToString(TestContext.DataRow["data"]);
-            double expected = double.NaN;//предлагается использовать null, 
-            //но его нельзя поместить в тип double
+            double expected = double.NaN;//Gчитал про библиотеку, которую используют прогеры
+            //она возвращает double.NaN, если строка неверного формата
+            var mockExp = new Mock<IExpression>();
+            mockExp.Setup(exp => exp.Expression).Returns(data);
             //acts   
-            
+            double actual = mc.Calculate(mockExp.Object);
             //assert
-            //Assert.AreEqual(actual, expected);
+            Assert.AreEqual(actual, expected);
         }
 
         [TestMethod]
-        public void Calculate_MaxValue_Plus_1_Returned_Null()
+        public void BaseCalc_10()
         {
             //arrange
             double mv = double.MaxValue;
-            double expected = double.NaN;//предлагается использовать null, 
-            //но его нельзя поместить в тип double
+            double expected = double.NaN;
+            string data = mv + "+" + 1;
+            var mockExp = new Mock<IExpression>();
+            mockExp.Setup(exp => exp.Expression).Returns(data);
             //acts
-
+            double actual = mc.Calculate(mockExp.Object);
             //assert
-            //Assert.AreEqual(actual, expected);
+            Assert.AreEqual(actual, expected);
         }
 
         [TestMethod]
-        public void Calculate_MinValue_Minus_1_Returned_Null()
+        public void BaseCalc_11()
         {
             //arrange
             double mv = double.MinValue;
-            double expected = double.NaN;//предлагается использовать null, 
-            //но его нельзя поместить в тип double
+            double expected = double.NaN;
+            string data = "-" + mv + "-" + 1;
+            var mockExp = new Mock<IExpression>();
+            mockExp.Setup(exp => exp.Expression).Returns(data);
             //acts
-
+            double actual = mc.Calculate(mockExp.Object);
             //assert
-            //Assert.AreEqual(actual, expected);
+            Assert.AreEqual(actual, expected);
         }
 
         [TestMethod]
