@@ -94,8 +94,8 @@ namespace MathLibTests
         public void MultiplicationDivisionCalc_7()
         {
             //arrange
-            double expected =10;
-            string data = "8/2*9/4/2*5*2/3*2.5*4/15";
+            string data = MakeString(10);
+            double expected = ExpectedResult(data, 10);
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
             //acts
