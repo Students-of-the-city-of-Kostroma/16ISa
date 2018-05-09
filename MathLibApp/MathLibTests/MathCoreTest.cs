@@ -21,6 +21,7 @@ namespace MathLibTests
             mc = new MathCore();
         }
 
+        //Здесь включены тесты: MultiplicationDivisionCalc_5, MultiplicationDivisionCalc_6
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "testData.xml",
             "Calculate", DataAccessMethod.Sequential)]
         [TestMethod]
@@ -28,12 +29,13 @@ namespace MathLibTests
         {
             //arrange
             string data = Convert.ToString(TestContext.DataRow["data"]);
-            double expected = double.NaN;//предлагается использовать null, 
-            //но его нельзя поместить в тип double
+            double expected = double.NaN;
+            var mockExp = new Mock<IExpression>();
+            mockExp.Setup(exp => exp.Expression).Returns(data);
             //acts
-            //double actual=mc.Calculate();//якобы на выходе будет null            
+            double actual = mc.Calculate(mockExp.Object);
             //assert
-            //Assert.AreEqual(actual, expected);
+            Assert.AreEqual(actual, expected);
         }
         [TestMethod]
         public void MultiplicationDivisionCalc_1()
