@@ -13,7 +13,14 @@ namespace MathLibTests
     public class MathCoreTest
     {
         public TestContext TestContext { get; set; }
-        //MathCore mc = new MathCore();
+        private static MathCore mc;
+
+        [TestInitialize]
+        public void ClassInitialize()
+        {
+            mc = new MathCore();
+        }
+
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "testData.xml",
             "Calculate", DataAccessMethod.Sequential)]
         [TestMethod]
@@ -36,9 +43,8 @@ namespace MathLibTests
             string data = "1*2/2";
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
-            var mockMath = new Mock<IMathCore>();
             //acts
-            double actual = mockMath.Object.Calculate(mockExp.Object);
+            double actual = mc.Calculate(mockExp.Object);
             //assert
             Assert.AreEqual(actual, expected);
         }
@@ -51,9 +57,8 @@ namespace MathLibTests
             string data = "1/20.*10";
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
-            var mockMath = new Mock<IMathCore>();
             //acts
-            double actual = mockMath.Object.Calculate(mockExp.Object);
+            double actual = mc.Calculate(mockExp.Object);
             //assert
             Assert.AreEqual(actual, expected);
         }
@@ -66,9 +71,8 @@ namespace MathLibTests
             string data = "52.5*321/8012.5";
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
-            var mockMath = new Mock<IMathCore>();
             //acts
-            double actual = mockMath.Object.Calculate(mockExp.Object);
+            double actual = mc.Calculate(mockExp.Object);
             //assert
             Assert.AreEqual(actual, expected);
         }
@@ -81,9 +85,8 @@ namespace MathLibTests
             string data = "8911.52*219.48/23/34*786/2012.5*0.5*2999/502*10500.228/322*9";
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
-            var mockMath = new Mock<IMathCore>();
             //acts
-            double actual = mockMath.Object.Calculate(mockExp.Object);
+            double actual = mc.Calculate(mockExp.Object)    ;
             //assert
             Assert.AreEqual(actual, expected);
         }
