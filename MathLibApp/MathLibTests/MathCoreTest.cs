@@ -13,6 +13,14 @@ namespace MathLibTests
     {
         public TestContext TestContext { get; set; }
 
+        private static MathCore mc;
+
+        [TestInitialize]
+        public void ClassInitialize()
+        {
+            mc = new MathCore();
+        }
+
         [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML","testData.xml", "Calculate",
             DataAccessMethod.Sequential)]
         [TestMethod]
@@ -62,9 +70,8 @@ namespace MathLibTests
             double expected = 3;
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
-            var mockMath = new Mock<IMathCore>();
             //acts
-            double actual = mockMath.Object.Calculate(mockExp.Object);
+            double actual = mc.Calculate(mockExp.Object);
             //assert
             Assert.AreEqual(actual, expected);
         }
@@ -76,9 +83,8 @@ namespace MathLibTests
             double expected = 3.5;
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
-            var mockMath = new Mock<IMathCore>();
             //acts
-            double actual = mockMath.Object.Calculate(mockExp.Object);
+            double actual = mc.Calculate(mockExp.Object);
             //assert
             Assert.AreEqual(actual, expected);
         }
@@ -90,9 +96,8 @@ namespace MathLibTests
             double expected = 8386;
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
-            var mockMath = new Mock<IMathCore>();
             //acts
-            double actual = mockMath.Object.Calculate(mockExp.Object);
+            double actual = mc.Calculate(mockExp.Object);
             //assert
             Assert.AreEqual(actual, expected);
         }
@@ -104,9 +109,8 @@ namespace MathLibTests
             double expected = 322.228;
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
-            var mockMath = new Mock<IMathCore>();
             //acts
-            double actual = mockMath.Object.Calculate(mockExp.Object);
+            double actual = mc.Calculate(mockExp.Object);
             //assert
             Assert.AreEqual(actual, expected);
         }
