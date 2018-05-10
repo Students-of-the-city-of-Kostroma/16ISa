@@ -50,7 +50,7 @@ namespace MathLibTests
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
             List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
-            a.Add(new MathLibDLL.Models.Argument("", expected));
+            //a.Add(new MathLibDLL.Models.Argument("", expected));
             mockExp.Setup(exp => exp.Arguments).Returns(a);
             //acts 
             double actual = mc.Calculate(mockExp.Object);
@@ -67,7 +67,7 @@ namespace MathLibTests
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
             List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
-            a.Add(new MathLibDLL.Models.Argument("", expected));
+            //a.Add(new MathLibDLL.Models.Argument("", expected));
             mockExp.Setup(exp => exp.Arguments).Returns(a);
             //acts 
             double actual = mc.Calculate(mockExp.Object);
@@ -84,7 +84,7 @@ namespace MathLibTests
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
             List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
-            a.Add(new MathLibDLL.Models.Argument("", expected));
+            //a.Add(new MathLibDLL.Models.Argument("", expected));
             mockExp.Setup(exp => exp.Arguments).Returns(a);
             //acts 
             double actual = mc.Calculate(mockExp.Object);
@@ -101,7 +101,7 @@ namespace MathLibTests
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
             List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
-            a.Add(new MathLibDLL.Models.Argument("", expected));
+           // a.Add(new MathLibDLL.Models.Argument("", expected));
             mockExp.Setup(exp => exp.Arguments).Returns(a);
             //acts 
             double actual = mc.Calculate(mockExp.Object);
