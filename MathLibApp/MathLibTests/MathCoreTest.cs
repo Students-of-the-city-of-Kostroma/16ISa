@@ -30,10 +30,13 @@ namespace MathLibTests
         {
             //arrange
             string data = Convert.ToString(TestContext.DataRow["data"]);
-            double expected = double.NaN;//Gчитал про библиотеку, которую используют прогеры
+            double expected = double.NaN;//Читал про библиотеку, которую используют прогеры
             //она возвращает double.NaN, если строка неверного формата
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
+            List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
+            a.Add(new MathLibDLL.Models.Argument("", double.NaN));
+            mockExp.Setup(exp => exp.Arguments).Returns(a);
             //acts   
             double actual = mc.Calculate(mockExp.Object);
             //assert
@@ -49,6 +52,9 @@ namespace MathLibTests
             string data = mv + "+" + 1;
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
+            List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
+            a.Add(new MathLibDLL.Models.Argument("", double.NaN));
+            mockExp.Setup(exp => exp.Arguments).Returns(a);
             //acts
             double actual = mc.Calculate(mockExp.Object);
             //assert
@@ -64,6 +70,9 @@ namespace MathLibTests
             string data = "-" + mv + "-" + 1;
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
+            List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
+            a.Add(new MathLibDLL.Models.Argument("", double.NaN));
+            mockExp.Setup(exp => exp.Arguments).Returns(a);
             //acts
             double actual = mc.Calculate(mockExp.Object);
             //assert
