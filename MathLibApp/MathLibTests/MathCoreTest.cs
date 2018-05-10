@@ -38,7 +38,7 @@ namespace MathLibTests
             //acts
             double actual = mc.Calculate(mockExp.Object);
             //assert
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
