@@ -12,14 +12,11 @@ namespace MathLibDLL
     {
         public string Expression
         {
-            set { Expression = value; }
-            get { return Expression; }
+            set;
+            get;
         }
 
-        public List<Argument> Arguments
-        {
-            get { return Arguments; }
-        }
+        public List<Argument> Arguments { get; }
 
         public void AddArgument(Argument argument)
         {
@@ -115,5 +112,10 @@ namespace MathLibDLL
             return 0;
         }
 
+        public MxparserExpression(string expression)
+        {
+            Expression = expression;
+            Arguments = new List<Argument>();
+        }
     }
 }
