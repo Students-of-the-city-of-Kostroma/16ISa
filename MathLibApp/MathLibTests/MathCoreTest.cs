@@ -101,8 +101,10 @@ namespace MathLibTests
             //arrange
             string data = MakeString(10);
             double expected = ExpectedResult(data, 10);
+            List<MathLibDLL.Models.Argument> datalist = new List<MathLibDLL.Models.Argument>();
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
+            mockExp.Setup(exp => exp.Arguments).Returns(datalist);
             //acts
             double actual = mc.Calculate(mockExp.Object);
             //assert
@@ -174,8 +176,10 @@ namespace MathLibTests
             //arrange
             string data = MakeString(50);
             double expected = ExpectedResult(data,50);
+            List<MathLibDLL.Models.Argument> datalist = new List<MathLibDLL.Models.Argument>();
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
+            mockExp.Setup(exp => exp.Arguments).Returns(datalist);
             //acts
             double actual = mc.Calculate(mockExp.Object);
             //assert
@@ -187,8 +191,10 @@ namespace MathLibTests
             //arrange
             string data = MakeString(500);
             double expected = ExpectedResult(data, 500);
+            List<MathLibDLL.Models.Argument> datalist = new List<MathLibDLL.Models.Argument>();
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
+            mockExp.Setup(exp => exp.Arguments).Returns(datalist);
             //acts
             double actual = mc.Calculate(mockExp.Object);
             //assert
