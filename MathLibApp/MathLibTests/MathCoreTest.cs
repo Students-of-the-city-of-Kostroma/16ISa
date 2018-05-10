@@ -32,6 +32,9 @@ namespace MathLibTests
             double expected = double.NaN;
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
+            List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
+            a.Add(new MathLibDLL.Models.Argument("", double.NaN));
+            mockExp.Setup(exp => exp.Arguments).Returns(a);
             //acts
             double actual = mc.Calculate(mockExp.Object);
             //assert
