@@ -40,61 +40,75 @@ namespace MathLibTests
             //assert
             Assert.AreEqual(actual, expected);
         }
+
         [TestMethod]
         public void MultiplicationDivisionCalc_1()
         {
-            //arrange
+            //arrange 
             double expected = 1;
             string data = "1*2/2";
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
-            //acts
+            List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
+            a.Add(new MathLibDLL.Models.Argument("", expected));
+            mockExp.Setup(exp => exp.Arguments).Returns(a);
+            //acts 
             double actual = mc.Calculate(mockExp.Object);
-            //assert
+            //assert 
             Assert.AreEqual(actual, expected);
         }
 
         [TestMethod]
         public void MultiplicationDivisionCalc_2()
         {
-            //arrange
+            //arrange 
             double expected = 0.5;
             string data = "1/20.*10";
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
-            //acts
+            List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
+            a.Add(new MathLibDLL.Models.Argument("", expected));
+            mockExp.Setup(exp => exp.Arguments).Returns(a);
+            //acts 
             double actual = mc.Calculate(mockExp.Object);
-            //assert
+            //assert 
             Assert.AreEqual(actual, expected);
         }
 
         [TestMethod]
         public void MultiplicationDivisionCalc_3()
         {
-            //arrange
+            //arrange 
             double expected = 2.10327613;
             string data = "52.5*321/8012.5";
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
-            //acts
+            List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
+            a.Add(new MathLibDLL.Models.Argument("", expected));
+            mockExp.Setup(exp => exp.Arguments).Returns(a);
+            //acts 
             double actual = mc.Calculate(mockExp.Object);
-            //assert
+            //assert 
             Assert.AreEqual(actual, expected);
         }
 
         [TestMethod]
         public void MultiplicationDivisionCalc_4()
         {
-            //arrange
+            //arrange 
             double expected = 856356.822;
             string data = "8911.52*219.48/23/34*786/2012.5*0.5*2999/502*10500.228/322*9";
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
-            //acts
-            double actual = mc.Calculate(mockExp.Object)    ;
-            //assert
+            List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
+            a.Add(new MathLibDLL.Models.Argument("", expected));
+            mockExp.Setup(exp => exp.Arguments).Returns(a);
+            //acts 
+            double actual = mc.Calculate(mockExp.Object);
+            //assert 
             Assert.AreEqual(actual, expected);
         }
+
         [TestMethod]
         public void MultiplicationDivisionCalc_7()
         {
