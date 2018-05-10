@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using MathLibDLL;
 using MathLibDLL.Interfaces;
 using Moq;
+using MathLibDLL.Models;
 
 namespace MathLibTests
 {
@@ -197,9 +198,11 @@ namespace MathLibTests
         {
             //arrange
             string data = MakeString(10);
+            List<Argument> datalist = new List<Argument>();
             double expected = ExpectedResult(data, 10);
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
+            mockExp.Setup(exp => exp.Arguments).Returns(datalist);
             //acts
             double actual = mc.Calculate(mockExp.Object);
             //assert
@@ -211,8 +214,10 @@ namespace MathLibTests
             //arrange
             string data = MakeString(50);
             double expected = ExpectedResult(data, 50);
+            List<Argument> datalist = new List<Argument>();
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
+            mockExp.Setup(exp => exp.Arguments).Returns(datalist);
             //acts
             double actual = mc.Calculate(mockExp.Object);
             //assert
@@ -224,8 +229,10 @@ namespace MathLibTests
             //arrange
             string data = MakeString(500);
             double expected = ExpectedResult(data, 500);
+            List<Argument> datalist = new List<Argument>();
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
+            mockExp.Setup(exp => exp.Arguments).Returns(datalist);
             //acts
             double actual = mc.Calculate(mockExp.Object);
             //assert
