@@ -49,6 +49,7 @@
     <Compile Include="MathCore.cs" />
     <Compile Include="Models\Argument.cs" />
     <Compile Include="Models\Constant.cs" />
+    <Compile Include="MxparserExpression.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
