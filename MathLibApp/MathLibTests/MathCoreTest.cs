@@ -83,53 +83,65 @@ namespace MathLibTests
         [TestMethod]
         public void BaseCalc_1()
         {
-            //arrange
-            string data = "1+2";    
+            //arrange 
+            string data = "1+2";
             double expected = 3;
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
-            //acts
+            List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
+            a.Add(new MathLibDLL.Models.Argument("", expected));
+            mockExp.Setup(exp => exp.Arguments).Returns(a);
+            //acts 
             double actual = mc.Calculate(mockExp.Object);
-            //assert
+            //assert 
             Assert.AreEqual(actual, expected);
         }
         [TestMethod]
         public void BaseCalc_2()
         {
-            //arrange
+            //arrange 
             string data = "1+2.5";
             double expected = 3.5;
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
-            //acts
+            List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
+            a.Add(new MathLibDLL.Models.Argument("", expected));
+            mockExp.Setup(exp => exp.Arguments).Returns(a);
+            //acts 
             double actual = mc.Calculate(mockExp.Object);
-            //assert
+            //assert 
             Assert.AreEqual(actual, expected);
         }
         [TestMethod]
         public void BaseCalc_3()
         {
-            //arrange
+            //arrange 
             string data = "52.5+321+8012.5";
             double expected = 8386;
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
-            //acts
+            List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
+            a.Add(new MathLibDLL.Models.Argument("", expected));
+            mockExp.Setup(exp => exp.Arguments).Returns(a);
+            //acts 
             double actual = mc.Calculate(mockExp.Object);
-            //assert
+            //assert 
             Assert.AreEqual(actual, expected);
         }
         [TestMethod]
         public void BaseCalc_4()
         {
-            //arrange
+            //arrange 
             string data = "8911.52+219.48+23+34+786-2012.5+0.5+2999-502+10500.228+322-20959";
             double expected = 322.228;
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
-            //acts
+            List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
+            a.Add(new MathLibDLL.Models.Argument("", expected));
+            mockExp.Setup(exp => exp.Arguments).Returns(a);
+            //acts 
             double actual = mc.Calculate(mockExp.Object);
-            //assert
+            //assert 
             Assert.AreEqual(actual, expected);
         }
         public string MakeString(int n)
