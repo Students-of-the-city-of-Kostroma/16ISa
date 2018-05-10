@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MathLibDLL.Interfaces;
-using MathLibDLL.Models;
 using MathLibDLL;
+using MathLibDLL.Interfaces;
+
 
 namespace MathLibApp
 {
@@ -13,19 +13,31 @@ namespace MathLibApp
     {
         static void Main(string[] args)
         {
-            string str = null;
-            str = Console.ReadLine();
-            if (str.Length > 50)
+            while (true)
             {
-                Console.WriteLine("Ошибка введено более 50 символов");
-            }
-            else
-            {
-                MathCore a = new MathCore();
-                a.Calculate(str);
+                string str = null;
+                str = Console.ReadLine();
+                if (str.Length > 50)
+                {
+                    Console.WriteLine("Ошибка введено более 50 символов");
+                }
+                else
+                {
+                    var math = new MathCore();
+                    IExpression expression = new MxparserExpression(str);
 
+                    if (math.CheckExpression(expression))
+                    {
+                        Console.WriteLine("Error");
+                        return;
+                    }
+
+                    var result = math.Calculate(expression);
+                    Console.WriteLine(result);
+                }
 
             }
         }
+
     }
 }

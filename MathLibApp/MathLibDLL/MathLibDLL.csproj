@@ -46,9 +46,9 @@
     <Compile Include="Interfaces\IExpression.cs" />
     <Compile Include="Interfaces\IFunction.cs" />
     <Compile Include="Interfaces\IMathCore.cs" />
-    <Compile Include="MathCore.cs" />
     <Compile Include="Models\Argument.cs" />
     <Compile Include="Models\Constant.cs" />
+    <Compile Include="MathCore.cs" />
     <Compile Include="MxparserExpression.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
