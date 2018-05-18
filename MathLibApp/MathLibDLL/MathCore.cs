@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using MathLibDLL.Interfaces;
 using MathLibDLL.Models;
 using org.mariuszgromada.math.mxparser;
@@ -18,6 +19,8 @@ namespace MathLibDLL
         public List<Constant> UserConstants { get; }
         public double Calculate(IExpression expression)
         {
+            if(CheckExpression(expression.Expression))
+                throw new ArgumentException();
             var Elements = new List<PrimitiveElement>();
             Elements.AddRange(expression.Arguments
                 .ConvertAll(a => new Argument($"{a.Name} = {a.Value}")));
@@ -36,6 +39,26 @@ namespace MathLibDLL
             Elements.AddRange(UserConstants.ConvertAll(c => new Argument(c.Name, c.Value)));
             Expression test = new Expression(expression.Expression, Elements.ToArray());
             return !test.checkSyntax();
+        }
+
+        public bool CheckExpression(string expression)
+        {
+            var Elements = new List<PrimitiveElement>();
+            Elements.AddRange(UserFunctions.ConvertAll(f => new Function(f.GetExpression)));
+            Elements.AddRange(UserConstants.ConvertAll(c => new Argument(c.Name, c.Value)));
+            Expression test = new Expression(expression, Elements.ToArray());
+            return !test.checkSyntax();
+        }
+
+        public double Calculate(string expression)
+        {
+            if (CheckExpression(expression))
+                throw new ArgumentException();
+            var Elements = new List<PrimitiveElement>();
+            Elements.AddRange(UserFunctions.ConvertAll(f => new Function(f.GetExpression)));
+            Elements.AddRange(UserConstants.ConvertAll(c => new Argument(c.Name, c.Value)));
+            Expression exp = new Expression(expression, Elements.ToArray());
+            return exp.calculate();
         }
 
         public void AddNewFunction(IFunction function)
