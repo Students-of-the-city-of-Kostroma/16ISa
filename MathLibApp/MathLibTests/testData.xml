@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Data>
-  <Calculate data ="1**2"></Calculate>
-  <Calculate data ="1//2"></Calculate>
+  <Brackets data ="2*(1+2)" expected ="6"></Brackets>
+  <Brackets data ="(0.5+2.5)-2*(30-5)/5*(2-1)" expected ="-7"></Brackets>
+  <Brackets data ="(20/10+2*(30-(20/4)/(500/(25+5*5)/0.5)))" expected ="61,5"></Brackets>
+  <Brackets data ="5+(-5)" expected ="0"></Brackets>
+  <Brackets data ="(1+2" expected ="double.NaN"></Brackets>
+  <Brackets data ="()+2" expected ="double.NaN"></Brackets>
 </Data>
