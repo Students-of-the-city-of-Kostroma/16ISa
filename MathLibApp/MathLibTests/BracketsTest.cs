@@ -11,7 +11,6 @@ namespace MathLibTests
     [TestClass]
     public class BracketsTest
     {
-        public TestContext TestContext { get; set; }
         private static MathCore mc;
         private static MxparserExpression exp;
 
@@ -20,17 +19,13 @@ namespace MathLibTests
         {
             mc = new MathCore();
         }
-
-        //Здесь включены тесты CalcBrackets_1, CalcBrackets_2, CalcBrackets_3,
-        //CalcBrackets_4
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "testData.xml",
-            "Brackets", DataAccessMethod.Sequential)]
+        
         [TestMethod]
-        public void Calculate_From_XML()
+        public void CalcBrackets_1()
         {
             //arrange
-            string data = Convert.ToString(TestContext.DataRow["data"]);
-            double expected = Convert.ToDouble(TestContext.DataRow["expected"]);
+            string data = "2*(1+2)";
+            double expected = 6;
             exp = new MxparserExpression(data);
             //acts
             double actual = mc.Calculate(exp);
@@ -38,14 +33,65 @@ namespace MathLibTests
             Assert.AreEqual(expected, actual);
         }
 
-        //Здесь включены тесты CalcBrackets_5, CalcBrackets_6
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "testData.xml",
-            "BracketsErrors", DataAccessMethod.Sequential)]
         [TestMethod]
-        public void Calculate_From_XML_returns_NaN()
+        public void CalcBrackets_2()
         {
             //arrange
-            string data = Convert.ToString(TestContext.DataRow["data"]);
+            string data = "(0.5+2.5)-2*(30-5)/5*(2-1)";
+            double expected = -7;
+            exp = new MxparserExpression(data);
+            //acts
+            double actual = mc.Calculate(exp);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CalcBrackets_3()
+        {
+            //arrange
+            string data = "(20/10+2*(30-(20/4)/(500/(25+5*5)/0.5)))";
+            double expected = 61.5;
+            exp = new MxparserExpression(data);
+            //acts
+            double actual = mc.Calculate(exp);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void CalcBrackets_4()
+        {
+            //arrange
+            string data = "5+(-5)";
+            double expected = 0;
+            exp = new MxparserExpression(data);
+            //acts
+            double actual = mc.Calculate(exp);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [ExpectedException(typeof(ArgumentException),"Всё гуд")]
+        [TestMethod]
+        public void CalcBrackets_5()
+        {
+            //arrange
+            string data = "(1+2";
+            double expected = double.NaN;
+            exp = new MxparserExpression(data);
+            //acts
+            double actual = mc.Calculate(exp);
+            //assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [ExpectedException(typeof(ArgumentException), "Всё гуд")]
+        [TestMethod]
+        public void CalcBrackets_6()
+        {
+            //arrange
+            string data = "()+2";
             double expected = double.NaN;
             exp = new MxparserExpression(data);
             //acts
