@@ -268,6 +268,8 @@ namespace MathLibTests
             double actual = mc.Calculate(data);
             //assert
             Assert.AreEqual(actual, expected);
+            //Ошибка в количестве знаков после запятой 
+            //Так же необходимо исправить значение Input в сценарии тестирования с 5^0,25 на 5^0.25
         }
         [TestMethod]
         public void CalcPowerOf_6()
