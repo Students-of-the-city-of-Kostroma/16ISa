@@ -78,12 +78,9 @@ namespace MathLibTests
         {
             //arrange
             string data = "(1+2";
-            double expected = double.NaN;
             exp = new MxparserExpression(data);
             //acts
             double actual = mc.Calculate(exp);
-            //assert
-            Assert.AreEqual(expected, actual);
         }
 
         [ExpectedException(typeof(ArgumentException), "Всё гуд")]
@@ -92,12 +89,9 @@ namespace MathLibTests
         {
             //arrange
             string data = "()+2";
-            double expected = double.NaN;
             exp = new MxparserExpression(data);
             //acts
             double actual = mc.Calculate(exp);
-            //assert
-            Assert.AreEqual(expected, actual);
         }
     }
 }
