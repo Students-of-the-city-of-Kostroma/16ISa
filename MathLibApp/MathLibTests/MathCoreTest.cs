@@ -101,7 +101,7 @@ namespace MathLibTests
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
             List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
-           // a.Add(new MathLibDLL.Models.Argument("", expected));
+            // a.Add(new MathLibDLL.Models.Argument("", expected));
             mockExp.Setup(exp => exp.Arguments).Returns(a);
             //acts 
             double actual = mc.Calculate(mockExp.Object);
@@ -128,13 +128,13 @@ namespace MathLibTests
         {
             string s = "";
             Random r = new Random();
-            double[] arr = new double[n+1];
+            double[] arr = new double[n + 1];
             bool flag = true;
-            for (int i = 0; i < n+1; i++)
+            for (int i = 0; i < n + 1; i++)
             {
-                arr[i] = r.Next(2, 6);
+                arr[i] = r.Next(4, 6);
                 s += arr[i].ToString();
-                if (i !=n)
+                if (i != n)
                 {
                     if (flag)
                     {
@@ -147,16 +147,17 @@ namespace MathLibTests
                         flag = true;
                     }
                 }
-            }return s;
+            }
+            return s;
         }
-        public double ExpectedResult(string s,int n)
+        public double ExpectedResult(string s, int n)
         {
             char[] operat = { '/', '*' };
-            char[] operat1 = { '2', '3', '4', '5', '6' };
-            double[] mas = new double[n+1];
+            char[] operat1 = { '4', '5', '6' };
+            double[] mas = new double[n + 1];
             string[] mas1 = new string[n];
             var data = s.Split(operat, StringSplitOptions.None);
-            for (int i = 0; i < n+1; i++)
+            for (int i = 0; i < n + 1; i++)
             {
                 mas[i] = double.Parse(data[i]);
             }
@@ -189,7 +190,7 @@ namespace MathLibTests
         {
             //arrange
             string data = MakeString(50);
-            double expected = ExpectedResult(data,50);
+            double expected = ExpectedResult(data, 50);
             List<MathLibDLL.Models.Argument> datalist = new List<MathLibDLL.Models.Argument>();
             var mockExp = new Mock<IExpression>();
             mockExp.Setup(exp => exp.Expression).Returns(data);
@@ -204,15 +205,50 @@ namespace MathLibTests
         {
             //arrange
             string data = MakeString(500);
-            double expected = ExpectedResult(data, 500);
-            List<MathLibDLL.Models.Argument> datalist = new List<MathLibDLL.Models.Argument>();
-            var mockExp = new Mock<IExpression>();
-            mockExp.Setup(exp => exp.Expression).Returns(data);
-            mockExp.Setup(exp => exp.Arguments).Returns(datalist);
+            double expected = double.NaN;
+            
             //acts
-            double actual = mc.Calculate(mockExp.Object);
+            double actual = mc.Calculate(data);
             //assert
             Assert.AreEqual(actual, expected);
         }
+        [TestMethod]
+        public void MultiplicationDivisionCalc_10()
+        {
+            //arrange
+            string data = "2e+2 + 25 * 2";
+            double expected = 250;
+
+            //acts
+            double actual = mc.Calculate(data);
+            //assert
+            Assert.AreEqual(actual, expected);
+        }
+        [TestMethod]
+        public void MultiplicationDivisionCalc_11()
+        {
+            //arrange
+            string data = null;
+            double expected = double.NaN;
+
+            //acts
+            double actual = mc.Calculate(data);
+            //assert
+            Assert.AreEqual(actual, expected);
+        }
+        [TestMethod]
+        public void MultiplicationDivisionCalc_12()
+        {
+            //arrange
+            string data ="1/0";
+            double expected = double.NaN;
+
+            //acts
+            double actual = mc.Calculate(data);
+            //assert
+            Assert.AreEqual(actual, expected);
+        }
+       
+
     }
 }
