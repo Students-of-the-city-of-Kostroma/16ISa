@@ -198,7 +198,7 @@ namespace MathLibTests
             //acts
             double actual = mc.Calculate(mockExp.Object);
             //assert
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void MultiplicationDivisionCalc_9()
@@ -210,7 +210,7 @@ namespace MathLibTests
             //acts
             double actual = mc.Calculate(data);
             //assert
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void MultiplicationDivisionCalc_10()
@@ -222,7 +222,7 @@ namespace MathLibTests
             //acts
             double actual = mc.Calculate(data);
             //assert
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void MultiplicationDivisionCalc_11()
@@ -234,7 +234,7 @@ namespace MathLibTests
             //acts
             double actual = mc.Calculate(data);
             //assert
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
         [TestMethod]
         public void MultiplicationDivisionCalc_12()
@@ -246,7 +246,7 @@ namespace MathLibTests
             //acts
             double actual = mc.Calculate(data);
             //assert
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
        
 
