@@ -37,7 +37,7 @@ namespace MathLibDLL
                 if ("()*/-+^".Contains(symbol.ToString()))
                     count++;
             if (count >= 50)
-                return false;
+                return true;
             var Elements = new List<PrimitiveElement>();
             Elements.AddRange(expression.Arguments
                 .ConvertAll(a => new Argument($"{a.Name} = {a.Value}")));
