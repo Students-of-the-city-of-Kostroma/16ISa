@@ -10,6 +10,7 @@ namespace MathLibDLL.Interfaces
     /// <summary>
     /// Математическое выражение используемое для вычислений
     /// </summary>
+    [Obsolete("Obsolete interface. Do not use it.",false)]
     public interface IExpression
     {
         /// <summary>

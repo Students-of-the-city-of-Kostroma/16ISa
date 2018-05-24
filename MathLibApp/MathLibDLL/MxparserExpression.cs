@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace MathLibDLL
 {
+    [Obsolete("Obsolete class. Do not use it",false)]
     public class MxparserExpression : IExpression
     {
         public string Expression
