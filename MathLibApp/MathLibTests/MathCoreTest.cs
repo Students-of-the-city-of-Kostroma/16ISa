@@ -222,6 +222,8 @@ namespace MathLibTests
             //assert
             Assert.AreEqual(expected, actual);
         }
+
+        [ExpectedException(typeof(ArgumentException))]
         [TestMethod]
         public void MultiplicationDivisionCalc_11()
         {
