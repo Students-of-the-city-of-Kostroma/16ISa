@@ -5,4 +5,6 @@
   <Calculate data="1--2"></Calculate>
   <Calculate data="1+,2"></Calculate>
   <Calculate data="1=2"></Calculate>
+  <Calculate data ="1**2"></Calculate>
+  <Calculate data ="1//2"></Calculate>
 </Data>
