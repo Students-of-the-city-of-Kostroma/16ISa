@@ -32,6 +32,12 @@ namespace MathLibDLL
 
         public bool CheckExpression(IExpression expression)
         {
+            int count = 0;
+            foreach (var symbol in expression.Expression)
+                if ("()*/-+^".Contains(symbol.ToString()))
+                    count++;
+            if (count >= 50)
+                return false;
             var Elements = new List<PrimitiveElement>();
             Elements.AddRange(expression.Arguments
                 .ConvertAll(a => new Argument($"{a.Name} = {a.Value}")));
@@ -43,6 +49,12 @@ namespace MathLibDLL
 
         public bool CheckExpression(string expression)
         {
+            int count = 0;
+            foreach (var symbol in expression)
+                if ("()*/-+^".Contains(symbol.ToString()))
+            count++;
+            if (count >= 50)
+                return true;
             var Elements = new List<PrimitiveElement>();
             Elements.AddRange(UserFunctions.ConvertAll(f => new Function(f.GetExpression)));
             Elements.AddRange(UserConstants.ConvertAll(c => new Argument(c.Name, c.Value)));
