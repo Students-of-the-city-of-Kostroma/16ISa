@@ -14,7 +14,6 @@ namespace MathLibTests
     {
         public TestContext TestContext { get; set; }
         private static MathCore mc;
-        private static MxparserExpression expected;
         [TestInitialize]
         public void ClassInitialize()
         {
@@ -200,15 +199,15 @@ namespace MathLibTests
             //assert
             Assert.AreEqual(expected, actual);
         }
+        
         [ExpectedException(typeof(ArgumentException))]
         [TestMethod]
         public void MultiplicationDivisionCalc_9()
         {
             //arrange
             string data = MakeString(500);
-            expected = new MxparserExpression(data);
             //acts
-            double actual = mc.Calculate(expected);
+            double actual = mc.Calculate(data);
 
         }
         [TestMethod]
@@ -228,12 +227,10 @@ namespace MathLibTests
         {
             //arrange
             string data = null;
-            double expected = double.NaN;
 
             //acts
             double actual = mc.Calculate(data);
-            //assert
-            Assert.AreEqual(expected, actual);
+          
         }
         [TestMethod]
         public void MultiplicationDivisionCalc_12()
