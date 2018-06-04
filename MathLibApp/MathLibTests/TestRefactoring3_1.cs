@@ -81,6 +81,8 @@ namespace MathLibTests
             }
             return res;
         }
+        //BaseCalc_12 На вход подается строка, содержащая выражение которое содержит 10 операторов
+        //(сделать так, чтобы не вылетело за диапазон double)
         [TestMethod]
         public void BaseCalc_12()
         {
@@ -92,6 +94,8 @@ namespace MathLibTests
             //assert
             Assert.AreEqual(expected, actual);
         }
+        //BaseCalc_13 На вход подается строка, содержащая выражение которое содержит 50 операторов
+        //    (сделать так, чтобы не вылетело за диапазон double)
         [TestMethod]
         public void BaseCalc_13()
         {
@@ -103,6 +107,8 @@ namespace MathLibTests
             //assert
             Assert.AreEqual(expected, actual);
         }
+        //BaseCalc_14 На вход подается строка, содержащая выражение которое
+        //содержит 500 операторов(сделать так, чтобы не вылетело за диапазон double)
         [ExpectedException(typeof(ArgumentException))]
         [TestMethod]
         public void BaseCalc_14()

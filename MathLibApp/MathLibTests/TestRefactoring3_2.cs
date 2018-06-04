@@ -45,6 +45,8 @@ namespace MathLibTests
             }
             return s;
         }
+        //MultiplicationDivisionCalc_7 На вход подается строка, содержащая выражение которое 
+        //содержит 10 операторов (сделать так, чтобы не вылетело за диапазон double)
         [TestMethod]
         public void MultiplicationDivisionCalc_7()
         {
@@ -56,6 +58,9 @@ namespace MathLibTests
             //assert
             Assert.AreEqual(expected, actual);
         }
+        //MultiplicationDivisionCalc_8
+        //На вход подается строка, содержащая выражение которое содержит
+        //50 операторов (сделать так, чтобы не вылетело за диапазон double)
         [TestMethod]
         public void MultiplicationDivisionCalc_8()
         {
@@ -67,7 +72,8 @@ namespace MathLibTests
             //assert
             Assert.AreEqual(expected, actual);
         }
-
+        //MultiplicationDivisionCalc_9 На вход подается строка, содержащая выражение
+        //которое содержит 500 операторов (сделать так, чтобы не вылетело за диапазон double)
         [ExpectedException(typeof(ArgumentException))]
         [TestMethod]
         public void MultiplicationDivisionCalc_9()
@@ -78,6 +84,8 @@ namespace MathLibTests
             double actual = mc.Calculate(data);
 
         }
+        //MultiplicationDivisionCalc_10 На вход подается строка, содержащая математическое выражение, 
+        //в котором содержатся экспоненциальные числа
         [TestMethod]
         public void MultiplicationDivisionCalc_10()
         {
@@ -102,6 +110,8 @@ namespace MathLibTests
         //    double actual = mc.Calculate(data);
 
         //}
+        //MultiplicationDivisionCalc_12 На вход подается строка, содержащая математическое выражение,
+        //в которой присутствует деление на 0
         [TestMethod]
         public void MultiplicationDivisionCalc_12()
         {
@@ -114,7 +124,7 @@ namespace MathLibTests
             //assert
             Assert.AreEqual(expected, actual);
         }
-
+        //MultiplicationDivisionCalc_13 На вход подается пустая строка
         [ExpectedException(typeof(ArgumentException))]
         [TestMethod]
         public void MultiplicationDivisionCalc_13()
