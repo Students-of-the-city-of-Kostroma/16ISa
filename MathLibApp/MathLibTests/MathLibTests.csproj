@@ -68,6 +68,7 @@
     <Compile Include="BracketsTest.cs" />
     <Compile Include="MathCoreTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Refactoring2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
