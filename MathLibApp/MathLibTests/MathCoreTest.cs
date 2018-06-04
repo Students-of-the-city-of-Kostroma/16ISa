@@ -20,6 +20,84 @@ namespace MathLibTests
             mc = new MathCore();
         }
 
+        #region BaseCalc
+        
+        [ExpectedException(typeof(ArgumentException), "Всё гуд")]
+        [TestMethod]
+        public void BaseCalc_5()
+        {
+            //arrange 
+            string data = "Где выражение?";
+            //acts 
+            double actual = mc.Calculate(data);
+        }
+        
+        [ExpectedException(typeof(ArgumentException), "Всё гуд")]
+        [TestMethod]
+        public void BaseCalc_6()
+        {
+            //arrange 
+            string data = "1++2";
+            //acts 
+            double actual = mc.Calculate(data);
+        }
+
+        [ExpectedException(typeof(ArgumentException), "Всё гуд")]
+        [TestMethod]
+        public void BaseCalc_7()
+        {
+            //arrange 
+            string data = "1--2";
+            //acts 
+            double actual = mc.Calculate(data);
+        }
+
+        [ExpectedException(typeof(ArgumentException), "Всё гуд")]
+        [TestMethod]
+        public void BaseCalc_8()
+        {
+            //arrange 
+            string data = "1+,2";
+            //acts 
+            double actual = mc.Calculate(data);
+        }
+
+        [ExpectedException(typeof(ArgumentException), "Всё гуд")]
+        [TestMethod]
+        public void BaseCalc_9()
+        {
+            //arrange 
+            string data = "1=2";
+            //acts 
+            double actual = mc.Calculate(data);
+        }
+
+        [ExpectedException(typeof(ArgumentException), "Всё гуд")]
+        [TestMethod]
+        public void BaseCalc_10()
+        {
+            //arrange 
+            double maxVal = double.MaxValue;
+            string data = maxVal.ToString()+"+1";
+            //acts 
+            double actual = mc.Calculate(data);
+            //assert
+        }
+
+        [ExpectedException(typeof(ArgumentException), "Всё гуд")]
+        [TestMethod]
+        public void BaseCalc_11()
+        {
+            //arrange
+
+            double minVal = double.MinValue;
+            string data = minVal.ToString() + "-1"; ;
+            //acts 
+            double actual = mc.Calculate(data);
+        }
+        #endregion
+
+        #region MultiplicationDivisionCalc
         [TestMethod]
         public void MultiplicationDivisionCalc_1()
         {
@@ -213,5 +291,6 @@ namespace MathLibTests
             //assert
             Assert.AreEqual(expected, actual);
         }
+        #endregion
     }
 }
