@@ -23,7 +23,6 @@ namespace MathLibTests
             //arrange
             string data = "2*(1+2)";
             double expected = 6;
-            //exp = new MxparserExpression(data);
             //acts
             double actual = mc.Calculate(data);
             //assert
@@ -36,7 +35,6 @@ namespace MathLibTests
             //arrange
             string data = "(0.5+2.5)-2*(30-5)/5*(2-1)";
             double expected = -7;
-            //exp = new MxparserExpression(data);
             //acts
             double actual = mc.Calculate(data);
             //assert
@@ -49,7 +47,6 @@ namespace MathLibTests
             //arrange
             string data = "(20/10+2*(30-(20/4)/(500/(25+5*5)/0.5)))";
             double expected = 61.5;
-            //exp = new MxparserExpression(data);
             //acts
             double actual = mc.Calculate(data);
             //assert
@@ -62,7 +59,6 @@ namespace MathLibTests
             //arrange
             string data = "5+(-5)";
             double expected = 0;
-            //exp = new MxparserExpression(data);
             //acts
             double actual = mc.Calculate(data);
             //assert
@@ -75,7 +71,6 @@ namespace MathLibTests
         {
             //arrange
             string data = "(1+2";
-            //exp = new MxparserExpression(data);
             //acts
             double actual = mc.Calculate(data);
         }
@@ -86,7 +81,6 @@ namespace MathLibTests
         {
             //arrange
             string data = "()+2";
-            //exp = new MxparserExpression(data);
             //acts
             double actual = mc.Calculate(data);
         }

@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using org.mariuszgromada.math.mxparser;
 using MathLibDLL;
 using System.Collections.Generic;
 using Moq;
@@ -19,26 +18,6 @@ namespace MathLibTests
         public void ClassInitialize()
         {
             mc = new MathCore();
-        }
-
-        //Здесь включены тесты: MultiplicationDivisionCalc_5, MultiplicationDivisionCalc_6
-        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", "testData.xml",
-            "Calculate", DataAccessMethod.Sequential)]
-        [TestMethod]
-        public void Calculate_From_XML()
-        {
-            //arrange
-            string data = Convert.ToString(TestContext.DataRow["data"]);
-            double expected = double.NaN;
-            var mockExp = new Mock<IExpression>();
-            mockExp.Setup(exp => exp.Expression).Returns(data);
-            List<MathLibDLL.Models.Argument> a = new List<MathLibDLL.Models.Argument>();
-            a.Add(new MathLibDLL.Models.Argument("", double.NaN));
-            mockExp.Setup(exp => exp.Arguments).Returns(a);
-            //acts
-            double actual = mc.Calculate(mockExp.Object);
-            //assert
-            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -107,6 +86,26 @@ namespace MathLibTests
             double actual = mc.Calculate(mockExp.Object);
             //assert 
             Assert.AreEqual(expected, actual);
+        }
+
+        [ExpectedException(typeof(ArgumentException), "Всё гуд")]
+        [TestMethod]
+        public void MultiplicationDivisionCalc_5()
+        {
+            //arrange 
+            string data = "1**2";
+            //acts 
+            double actual = mc.Calculate(data);
+        }
+
+        [ExpectedException(typeof(ArgumentException), "Всё гуд")]
+        [TestMethod]
+        public void MultiplicationDivisionCalc_6()
+        {
+            //arrange 
+            string data = "1//2";
+            //acts 
+            double actual = mc.Calculate(data);
         }
 
         [TestMethod]
