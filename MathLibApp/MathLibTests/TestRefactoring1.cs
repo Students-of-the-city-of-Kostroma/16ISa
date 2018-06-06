@@ -117,7 +117,7 @@ namespace MathLibTests
         public void MultiplicationDivisionCalc_3()
         {
             //arrange 
-            double expected = 2.10327613;
+            double expected = 2.10328;
             string data = "52.5*321/8012.5";
             //acts
             double actual = mc.Calculate(data);
