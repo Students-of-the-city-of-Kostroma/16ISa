@@ -54,7 +54,7 @@ namespace MathLibTests
             //acts 
             double actual = mc.Calculate(mockExp.Object);
             //assert 
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -71,7 +71,7 @@ namespace MathLibTests
             //acts 
             double actual = mc.Calculate(mockExp.Object);
             //assert 
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -88,7 +88,7 @@ namespace MathLibTests
             //acts 
             double actual = mc.Calculate(mockExp.Object);
             //assert 
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -105,7 +105,7 @@ namespace MathLibTests
             //acts 
             double actual = mc.Calculate(mockExp.Object);
             //assert 
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -121,7 +121,7 @@ namespace MathLibTests
             //acts
             double actual = mc.Calculate(mockExp.Object);
             //assert
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
         public string MakeString(int n)
         {
