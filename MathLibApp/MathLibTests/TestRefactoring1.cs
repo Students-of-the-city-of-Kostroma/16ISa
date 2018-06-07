@@ -122,7 +122,7 @@ namespace MathLibTests
             //acts
             double actual = mc.Calculate(data);
             //assert
-            Assert.AreEqual(expected, actual);
+            Assert.IsTrue(Math.Abs(actual - expected) < 0.00001);
         }
 
         /// <summary>
