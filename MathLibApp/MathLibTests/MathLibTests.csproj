@@ -72,6 +72,7 @@
     <Compile Include="TestRefactoring3_2.cs" />
     <Compile Include="Tests.cs" />
     <Compile Include="Refactoring2.cs" />
+    <Compile Include="TestRefactoring1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
