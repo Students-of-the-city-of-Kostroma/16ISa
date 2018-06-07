@@ -36,7 +36,7 @@ namespace MathLibDLL
             foreach (var symbol in expression.Expression)
                 if ("()*/-+^".Contains(symbol.ToString()))
                     count++;
-            if (count >= 50)
+            if (count > 50)
                 return true;
             var Elements = new List<PrimitiveElement>();
             Elements.AddRange(expression.Arguments
@@ -53,7 +53,7 @@ namespace MathLibDLL
             foreach (var symbol in expression)
                 if ("()*/-+^".Contains(symbol.ToString()))
             count++;
-            if (count >= 50)
+            if (count > 50)
                 return true;
             var Elements = new List<PrimitiveElement>();
             Elements.AddRange(UserFunctions.ConvertAll(f => new Function(f.GetExpression)));

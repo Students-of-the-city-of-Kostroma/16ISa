@@ -1,5 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Data>
+  <Calculate data="гдевыражение?"></Calculate>
+  <Calculate data="1++2"></Calculate>
+  <Calculate data="1--2"></Calculate>
+  <Calculate data="1+,2"></Calculate>
+  <Calculate data="1=2"></Calculate>
   <Calculate data ="1**2"></Calculate>
   <Calculate data ="1//2"></Calculate>
 </Data>
