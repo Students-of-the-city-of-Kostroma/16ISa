@@ -65,17 +65,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BracketsTest.cs" />
     <Compile Include="MathCoreTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestRefactoring3_1.cs" />
+    <Compile Include="TestRefactoring3_2.cs" />
     <Compile Include="Tests.cs" />
+    <Compile Include="Refactoring2.cs" />
+    <Compile Include="TestRefactoring1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="testData.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MathLibDLL\MathLibDLL.csproj">
